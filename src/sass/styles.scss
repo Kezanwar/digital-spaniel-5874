@@ -1,8 +1,8 @@
-@import './theme/typography';
-@import './utility/responsive';
+@import './theme/index';
+@import './utility/index';
 
 html {
   font-family: 'Rubik', sans-serif;
 }
 
-@import './components/Root/index.scss';
+@import './components/components';
