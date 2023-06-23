@@ -27,8 +27,8 @@ export { ${1} }" >  src/components/$1/index.ts
 
 # add .YourComponent {} to sass file
 
-echo ".${1} {}" > src/components/$1.module.scss
+echo ".${1} {}" > src/components/$1/$1.module.scss
 
 # add import to sass folder index
 
-echo "@import '@app/components/${1}/$1.module.scss';" >> src/sass/components/components.scss
+echo "@import '@app/components/${1}/$1.module.scss';" >> src/sass/components/_components.scss
