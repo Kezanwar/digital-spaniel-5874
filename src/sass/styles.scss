@@ -1,0 +1,8 @@
+@import './theme/typography';
+@import './utility/responsive';
+
+html {
+  font-family: 'Rubik', sans-serif;
+}
+
+@import './components/Root/index.scss';
