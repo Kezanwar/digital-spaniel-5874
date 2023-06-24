@@ -1,3 +1,7 @@
+# GENERATE A COMPONENT
+# usage e.g bash grc.sh YourComponent
+
+
 # * ------------- COMPONENT
 
 # create ts/tsx component in src/components
