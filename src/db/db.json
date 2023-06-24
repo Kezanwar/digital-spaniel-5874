@@ -1,12 +1,25 @@
 {
   "testimonials": [
     {
-      "id": 1,
-      "name": "Rupert",
-      "description": "Some description",
-      "picture": "<https://cdn.fakercloud.com/avatars/andysolomon_128.jpg>",
-      "country": "Malaysia",
-      "joining_date": "2021-11-11T06:58:41.548Z"
+      "id": "2176837952",
+      "author": "Paul Simons",
+      "position": "Founder, MegaCorp",
+      "content": "Working with Digital Spaniel has been a breath of fresh air. Their approach and attitude kept me informed and included from the start. Super pleased with the end results too!",
+      "imgSrc": "http://localhost:5173/src/assets/paul-testimonial.png"
+    },
+    {
+      "id": "2776887652",
+      "author": "Johnny B Goode",
+      "position": "CEO, Getting Things Done",
+      "content": "Advice and support from DigiSpan was second to none. Always willing to help and offer advice and solutions. A very good and rapid understanding of our requirements was key to this.",
+      "imgSrc": "http://localhost:5173/src/assets/johnny-testimonial.png"
+    },
+    {
+      "id": "2359087653",
+      "author": "Mary Jane",
+      "position": "CEO, Design Matters",
+      "content": "We needed a creative and unique brand which could compete against established products. Digital Spaniel delivered in spades and we’ve seen a huge response to the product launch.",
+      "imgSrc": "http://localhost:5173/src/assets/mary-testimonial.png"
     }
   ]
 }
