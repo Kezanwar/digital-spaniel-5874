@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { BASE_URL } from '../config/config';
+import { BASE_URL } from '@app/config/config';
 
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
