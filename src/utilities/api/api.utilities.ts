@@ -1,6 +1,6 @@
-import { ErrorObject } from '../types/error';
+import { ErrorObject } from '../../types/error';
 
-type FetchErrorHandlerOptions = {
+export type FetchErrorHandlerOptions = {
   error: unknown;
   onError: (errorObj: ErrorObject) => void;
 };
