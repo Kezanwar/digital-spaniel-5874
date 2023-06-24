@@ -1,14 +1,17 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { BASE_URL } from '../config/config';
 
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) =>
-    Promise.reject(
-      (error.response && error.response.data) || 'Something went wrong'
-    )
+  (error: AxiosError) => {
+    const err = error?.response?.data || {
+      message: 'Something went wrong',
+      statusCode: 500
+    };
+    Promise.reject(err);
+  }
 );
 
 export default axiosInstance;

@@ -1,12 +1,26 @@
-import { AppDispatch, GetState } from '@app/store/store';
+// redux
+import { AppDispatch } from '@app/types/store';
+import {
+  setTestimonialsLoading,
+  setTestimonialsSuccess,
+  setTestimonialsError
+} from './testimonials.slice';
 
-export const fetchTestimonialsAction = (
-  dispatch: AppDispatch,
-  getState: GetState
-) => {
-  //   const stateBefore = getState();
-  //   console.log(`Counter before: ${stateBefore.}`);
-  //   dispatch(increment());
-  //   const stateAfter = getState();
-  //   console.log(`Counter after: ${stateAfter.counter}`);
+// api
+import { getTestimonials } from '@app/api/testimonials.api';
+
+// util
+import { fetchErrorHandler } from '../../../utilities/api.utilities';
+
+export const fetchTestimonialsAction = async (dispatch: AppDispatch) => {
+  try {
+    dispatch(setTestimonialsLoading(true));
+    const res = await getTestimonials();
+    dispatch(setTestimonialsSuccess(res?.data || null));
+  } catch (error) {
+    fetchErrorHandler({
+      error,
+      onError: (err) => dispatch(setTestimonialsError(err))
+    });
+  }
 };

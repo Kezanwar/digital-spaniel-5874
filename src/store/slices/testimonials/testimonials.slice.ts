@@ -1,39 +1,53 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Testimonial } from '@app/types/testimonials';
+import { ErrorObject } from '@app/types/error';
 
 // types
 
 interface testimonialSliceState {
-  testimonials: Testimonial[];
+  testimonials: Testimonial[] | null;
   loading: boolean;
+  error: string;
   isFetched: boolean;
 }
 
 const initialState: testimonialSliceState = {
-  testimonials: [],
+  testimonials: null,
   loading: false,
+  error: '',
   isFetched: false
 };
 
-const navSlice = createSlice({
-  name: 'navSlice',
+const testimonialSlice = createSlice({
+  name: 'testimonialSlice',
   initialState,
   reducers: {
-    setTestimonials: (state, action: PayloadAction<Testimonial[]>) => {
+    setTestimonialsSuccess: (state, action: PayloadAction<Testimonial[]>) => {
       state.testimonials = action.payload;
       state.isFetched = true;
       state.loading = false;
+      state.error = '';
     },
-    setLoading: (state, action: PayloadAction<boolean>) => {
+    setTestimonialsError: (state, action: PayloadAction<ErrorObject>) => {
+      state.testimonials = null;
+      state.isFetched = true;
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    setTestimonialsLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     }
   }
 });
 
 // export for use around the app
-export const { setTestimonials, setLoading } = navSlice.actions;
+export const {
+  setTestimonialsSuccess,
+  setTestimonialsError,
+  setTestimonialsLoading
+} = testimonialSlice.actions;
 
 // export for store
-const navReducer = navSlice.reducer;
+const testimonialReducer = testimonialSlice.reducer;
 
-export default navReducer;
+export default testimonialReducer;

@@ -1,5 +1,5 @@
-import axiosInstance from '../services/axios';
-import { Testimonial } from '../types/testimonials';
+import axiosInstance from '@app/services/axios';
+import { Testimonial } from '@app/types/testimonials';
 
 const ENDPOINTS = {
   getTestimonials: '/testimonials'
