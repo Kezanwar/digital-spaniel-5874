@@ -1,3 +1,4 @@
+
 # DIGITAL SPANIEL REACT TYPESCRIPT
 
 # ----- Requirements
@@ -7,3 +8,4 @@
 ```
 npm i -g json-server
 ```
+
