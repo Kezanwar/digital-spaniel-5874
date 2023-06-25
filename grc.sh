@@ -24,7 +24,7 @@ echo "import React from 'react';
 type Props = {};
 
 const ${2}: React.FC<Props> = (props) => {
-  return <div className='${2}' >${2}</div>;
+  return <div className='${2}'>${2}</div>;
 };
 
 export default ${2}; " >  src/components/$1/$2/$2.tsx
