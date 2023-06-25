@@ -19,9 +19,9 @@ function App() {
   }, []);
 
   return (
-    <Root>
+    <>
       <Header />
-    </Root>
+    </>
   );
 }
 
