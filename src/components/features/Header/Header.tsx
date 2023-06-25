@@ -4,22 +4,48 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@app/types/store';
 
+// hooks
+import { useLocation } from 'react-router';
+import { useMediaQuery } from '@app/hooks/useResponsive';
+import useHeaderScroll from '../../../hooks/useHeaderScroll';
+
+// config
+import { mediaQueries } from '@app/constants/responsive.constants';
+
 // components
 import { Logo } from '@app/components/elements/Logo';
-import { useResponsive } from '../../../hooks/useResponsive';
+
+import { Hamburger } from '../../buttons/Hamburger';
+import { DesktopNav } from './nav';
 
 const Header: React.FC = () => {
   const { mobileNavOpen } = useSelector((state: RootState) => state.nav);
+  const { pathname } = useLocation();
+  const [isTablet] = useMediaQuery([mediaQueries.lgTablet]);
 
-  const [isMobile, isTablet] = useResponsive();
+  const { hide, whiteBG } = useHeaderScroll();
+
+  const hideClass = hide ? 'scroll-hide' : '';
+  const whiteBgClass = whiteBG ? 'white-bg' : '';
 
   return (
-    <header className="header__wrapper">
-      <div className="header__content">
-        <Logo />
-        {/* <DesktopNav /> */}
-      </div>
-    </header>
+    <>
+      <header className={`header__wrapper ${hideClass} ${whiteBgClass} `}>
+        <div className="header__content">
+          <Logo />
+          {!isTablet ? (
+            <DesktopNav activePath={pathname} />
+          ) : (
+            <Hamburger
+              onClick={() => {
+                console.log('hello');
+              }}
+              open={mobileNavOpen}
+            />
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 

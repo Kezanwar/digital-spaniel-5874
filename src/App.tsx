@@ -20,6 +20,7 @@ function App() {
   return (
     <>
       <Header />
+      <div style={{ height: '200vh', backgroundColor: 'lavender' }}></div>
     </>
   );
 }
