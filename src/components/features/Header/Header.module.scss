@@ -1,2 +1,34 @@
-.Header {
+.header__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+
+    max-width: 100%;
+
+    @media (min-width: 1400px) {
+      max-width: 1400px;
+    }
+
+    @include for-lg-phone {
+      padding: 1rem;
+    }
+
+    .Logo {
+      max-height: 100%;
+      @include for-lg-tablet {
+        height: 60px;
+      }
+    }
+  }
 }
