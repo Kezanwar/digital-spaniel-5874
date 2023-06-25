@@ -1,38 +1,76 @@
-# GENERATE A COMPONENT
-# usage e.g bash grc.sh YourComponent
+#* GENERATE A COMPONENT
+
+#*--- USAGE
+#* bash grc.sh {directory} {yourcomponent}
+
+#* $1 = directory - should be lowercase, will be converted to uppercase first where needed
+#* $2 = component - should be capital/camelcase inline with react component 
 
 
-# * ------------- COMPONENT
+# create component folder/file structure in src/components
 
-# create ts/tsx component in src/components
+mkdir src/components/$1/$2 # make new directory in components
+touch src/components/$1/$2/$2.tsx # make component.tsx
+touch src/components/$1/$2/index.ts # make index.ts
+touch src/components/$1/$2/$2.module.scss # make component.module.scss
+touch src/components/$1/$2/$2.stories.ts # make component.stories.ts
 
-mkdir src/components/$1
-touch src/components/$1/$1.tsx
-touch src/components/$1/index.ts
-touch src/components/$1/$1.module.scss
 
-# create starter functional component tsx to YourComponent.tsx
+
+# ----- component.tsx ------ create starter functional component
 
 echo "import React from 'react';
 
 type Props = {};
 
-const ${1}: React.FC<Props> = (props) => {
-  return <div className='${1}' >${1}</div>;
+const ${2}: React.FC<Props> = (props) => {
+  return <div className='${2}'>${2}</div>;
 };
 
-export default ${1}; " >  src/components/$1/$1.tsx
+export default ${2}; " >  src/components/$1/$2/$2.tsx
 
-# create default export to folders index.ts
 
-echo "import ${1} from './${1}';
 
-export { ${1} }" >  src/components/$1/index.ts
+# ------ index.ts ------- create default export 
 
-# add .YourComponent {} to sass file
+echo "import ${2} from './${2}';
 
-echo ".${1} {}" > src/components/$1/$1.module.scss
+export { ${2} }" >  src/components/$1/$2/index.ts
 
-# add import to sass folder index
 
-echo "@import '@app/components/${1}/$1.module.scss';" >> src/sass/components/_components.scss
+
+# ------ component.module.scss ----- add an empty selector for new component
+
+echo ".${2} {}" > src/components/$1/$2/$2.module.scss
+
+
+
+# ------ sass/components/${1}/_components.scss ------ import new components sass module 
+
+echo "@import '@app/components/$1/$2/$2.module.scss';" >> src/sass/components/_$1.scss
+
+
+
+# ------ component.stories.ts ------- add basic storybook configuration 
+
+echo "import type { Meta, StoryObj } from '@storybook/react';
+
+import { ${2} } from './index';
+
+// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
+const meta = {
+  title: 'components/${1}/${2}',
+  component: ${2},
+  tags: ['autodocs'],
+  argTypes: {}
+} satisfies Meta<typeof ${2}>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export const Primary: Story = {
+  args: {}
+};
+" > src/components/$1/$2/$2.stories.ts
