@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Header />
-      <div style={{ height: '200vh', backgroundColor: 'white' }}></div>
+      <div style={{ height: '200vh', backgroundColor: 'lavender' }}></div>
     </>
   );
 }

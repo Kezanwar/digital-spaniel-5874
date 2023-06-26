@@ -1,3 +1,4 @@
 import DesktopNav from './DesktopNav';
+import MobileNav from './MobileNav';
 
-export { DesktopNav };
+export { DesktopNav, MobileNav };
