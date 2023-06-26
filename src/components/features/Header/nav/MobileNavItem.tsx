@@ -1,25 +1,58 @@
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { AnimationDefinition, motion } from 'framer-motion';
 
-interface Props extends LinkProps {
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@app/types/store';
+import { close } from '@app/store/slices/nav/nav.slice';
+
+import { navItems } from '@app/constants/nav.constants';
+
+interface Props {
   active: boolean;
   label: string;
   index: number;
+  open: boolean;
+  to: string;
 }
 
-const variants = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -5 }
-};
+interface Delay {
+  to: number;
+  from: number;
+}
 
-const MobileNavItem: React.FC<Props> = (props) => {
-  const { active, to, label, index } = props;
+type Delays = Delay[];
+
+const closedAnim: AnimationDefinition = { opacity: 0 };
+const openAnim: AnimationDefinition = { opacity: 1 };
+
+const delays: Delays = navItems.map((_, i) => ({
+  from: 0.2 * i + 0.4,
+  to: 0
+}));
+
+const MobileNavItem: React.FC<Props> = ({ active, to, label, index, open }) => {
+  const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    dispatch(close());
+    navigate(to);
+  };
   return (
-    <motion.li variants={variants}>
-      <Link to={to} className={`nav-item ${active ? 'active' : ''}`}>
+    <motion.li
+      animate={open ? openAnim : closedAnim}
+      transition={{
+        delay: open ? delays[index].from : delays[index].to,
+        duration: !open ? 0.2 : 0.3
+      }}
+    >
+      <button
+        onClick={handleNavigate}
+        className={`nav-item ${active ? 'active' : ''}`}
+      >
         {label}
-      </Link>
+      </button>
     </motion.li>
   );
 };

@@ -1,40 +1,46 @@
 import React from 'react';
-import { motion, easeIn } from 'framer-motion';
-import { navItems } from '@app/constants/nav.constants';
+import { motion, easeIn, AnimationDefinition } from 'framer-motion';
+
 import MobileNavItem from './MobileNavItem';
+
+import { navItems } from '@app/constants/nav.constants';
 
 type Props = {
   activePath: string;
+  open: boolean;
+  scrollUp: boolean;
 };
 
-const variants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 }
-};
+const hiddenAnim: AnimationDefinition = { x: '-100%' };
 
-const MobileNav: React.FC<Props> = ({ activePath }) => {
+const openAnim: AnimationDefinition = { x: 0 };
+
+const MobileNav: React.FC<Props> = ({ activePath, open, scrollUp }) => {
   return (
-    <motion.ul
-      initial="hidden"
-      animate="visible"
-      variants={variants}
+    <motion.nav
+      role="navigation"
+      initial={{ x: '-100%' }}
+      animate={open ? openAnim : hiddenAnim}
       transition={{
-        staggerChildren: 0.2,
-        duration: 0.3,
         ease: 'easeIn',
-        easings: easeIn
+        delay: !open ? 0.2 : 0,
+        easings: easeIn,
+        duration: !open ? 0.1 : 0.3
       }}
-      className="nav--desktop"
+      className={`nav--mobile ${scrollUp ? 'scroll-up' : ''}`}
     >
-      {navItems.map((item, index) => (
-        <MobileNavItem
-          index={index}
-          to={item.to}
-          active={activePath === item.to}
-          label={item.label}
-        />
-      ))}
-    </motion.ul>
+      <ul>
+        {navItems.map((item, index) => (
+          <MobileNavItem
+            open={open}
+            key={`mob-${item.label}`}
+            index={index}
+            {...item}
+            active={activePath === item.to}
+          />
+        ))}
+      </ul>
+    </motion.nav>
   );
 };
 

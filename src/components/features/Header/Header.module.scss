@@ -85,10 +85,14 @@
         }
       }
     }
+
+    .hamburger-btn {
+      z-index: 2;
+    }
   }
 }
 
-// add white background
+// add header w-bg
 
 .header__wrapper.white-bg {
   background-color: $white;
@@ -110,5 +114,76 @@
 // hide on scroll down
 
 .header__wrapper.scroll-hide {
-  transform: translateY(-100%);
+  transform: translateY(-120%);
+}
+
+// nav mobile
+nav.nav--mobile {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $navy--dark;
+  z-index: 0;
+  top: 130px;
+  padding: 2rem;
+  padding-top: 6rem;
+  transition: all 150ms ease;
+
+  &.scroll-up {
+    top: 0px;
+  }
+
+  @include for-lg-tablet {
+    top: 120px;
+  }
+
+  @include for-lg-phone {
+    top: 100px;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    gap: 3rem;
+
+    button.nav-item {
+      background-color: unset;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 2.5rem;
+      text-decoration: none;
+      font-weight: 800;
+      transition: all 150ms ease;
+      font-family: $open_sans;
+
+      display: inline-block;
+      position: relative;
+      color: $white;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &::after {
+        content: '';
+        opacity: 0;
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        transition: opacity 200ms ease;
+        bottom: -0.25rem;
+        left: 0;
+        background-color: $pink--dark;
+      }
+
+      &.active {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

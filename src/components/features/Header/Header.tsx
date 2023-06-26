@@ -16,7 +16,7 @@ import { mediaQueries } from '@app/constants/responsive.constants';
 // components
 import { Logo } from '@app/components/elements/Logo';
 import { Hamburger } from '@app/components/buttons/Hamburger';
-import { DesktopNav } from './nav';
+import { DesktopNav, MobileNav } from './nav';
 
 const Header: React.FC = () => {
   const { mobileNavOpen } = useSelector((state: RootState) => state.nav);
@@ -42,6 +42,9 @@ const Header: React.FC = () => {
           )}
         </div>
       </header>
+      {isTablet ? (
+        <MobileNav scrollUp={hide} open={mobileNavOpen} activePath={pathname} />
+      ) : null}
     </>
   );
 };

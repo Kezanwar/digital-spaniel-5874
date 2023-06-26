@@ -14,27 +14,30 @@ const variants = {
 
 const DesktopNav: React.FC<Props> = ({ activePath }) => {
   return (
-    <motion.ul
-      initial="hidden"
-      animate="visible"
-      variants={variants}
-      transition={{
-        staggerChildren: 0.2,
-        duration: 0.3,
-        ease: 'easeIn',
-        easings: easeIn
-      }}
-      className="nav--desktop"
-    >
-      {navItems.map((item, index) => (
-        <DesktopNavItem
-          index={index}
-          to={item.to}
-          active={activePath === item.to}
-          label={item.label}
-        />
-      ))}
-    </motion.ul>
+    <nav role="navigation">
+      <motion.ul
+        initial="hidden"
+        animate="visible"
+        variants={variants}
+        transition={{
+          staggerChildren: 0.2,
+          duration: 0.3,
+          ease: 'easeIn',
+          easings: easeIn
+        }}
+        className="nav--desktop"
+      >
+        {navItems.map((item, index) => (
+          <DesktopNavItem
+            key={`desktop-${item.label}`}
+            index={index}
+            to={item.to}
+            active={activePath === item.to}
+            label={item.label}
+          />
+        ))}
+      </motion.ul>
+    </nav>
   );
 };
 
