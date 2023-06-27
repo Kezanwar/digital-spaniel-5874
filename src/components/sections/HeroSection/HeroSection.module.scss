@@ -1,8 +1,13 @@
 .section__hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: 80vh;
   overflow-x: hidden;
+
+  @include for-lg-tablet {
+    min-height: unset;
+    padding-bottom: 4rem;
+  }
 
   .hero__right {
     background-image: url('/src/assets/spaniel-gradient.png');
@@ -19,7 +24,7 @@
       flex-direction: column;
       gap: 2rem;
       padding: 2rem;
-      margin-left: 10%;
+      margin-left: 2rem;
       max-width: 65%;
 
       @include for-lg-desktop-down {
@@ -65,7 +70,7 @@
 
       .__content {
         max-width: 100%;
-
+        mix-blend-mode: color-burn;
         .body-text {
           width: 70%;
         }
@@ -82,7 +87,7 @@
   @include for-lg-phone {
     margin-top: 100px;
     .hero__right {
-      height: 10rem;
+      // height: 10rem;
     }
     .hero__left {
       .__content {

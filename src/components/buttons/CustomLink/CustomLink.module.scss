@@ -8,13 +8,21 @@
   width: max-content;
 
   &::before {
-    z-index: -1;
     content: '';
     width: 100%;
     height: 2px;
     position: absolute;
     bottom: -0.25rem;
     left: 0;
+    transition: all 150ms ease;
+  }
+  &::after {
+    content: url('data:image/svg+xml,<svg width="13" height="13" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.21967 0.969668C5.51256 0.676777 5.98744 0.676777 6.28033 0.969668L10.5303 5.21967C10.8232 5.51256 10.8232 5.98744 10.5303 6.28033L6.28033 10.5303C5.98744 10.8232 5.51256 10.8232 5.21967 10.5303C4.92678 10.2374 4.92678 9.7626 5.21967 9.4697L8.1893 6.5H0.75C0.33579 6.5 0 6.16421 0 5.75C0 5.33579 0.33579 5 0.75 5H8.1893L5.21967 2.03033C4.92678 1.73744 4.92678 1.26256 5.21967 0.969668Z" fill="%23506473"/></svg>');
+    position: absolute;
+    top: 50%;
+    right: 0;
+    opacity: 0;
+    transform: translateX(100%) translateY(-53%);
     transition: all 150ms ease;
   }
 
@@ -34,8 +42,17 @@
 
   &:hover {
     opacity: 0.9;
+    color: $pink--dark;
     &::before {
       scale: 0;
     }
+    &::after {
+      opacity: 0.9;
+      transform: translateX(calc(0.75rem + 100%)) translateY(-53%);
+    }
+  }
+
+  &:active {
+    scale: 0.9;
   }
 }

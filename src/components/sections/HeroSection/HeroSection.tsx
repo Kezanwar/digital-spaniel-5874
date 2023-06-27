@@ -9,7 +9,7 @@ import { PATH_CONTACT } from '../../../constants/paths.constants';
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="section__hero">
+    <section className="section__hero">
       <div className="hero__left">
         <div className="__content">
           <Tagline>Brand, Dev, Ecom, Marketing </Tagline>
@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
       <div className="hero__right" />
-    </div>
+    </section>
   );
 };
 

@@ -1,0 +1,23 @@
+.section__wrapper {
+  padding: 8rem 0rem;
+
+  @include for-lg-tablet {
+    padding: 4rem 0rem;
+  }
+
+  .section__content {
+    max-width: 100%;
+    margin: auto;
+    padding: 0rem 5rem;
+    @media (min-width: 1400px) {
+      max-width: 1500px;
+    }
+
+    @include for-lg-desktop-down {
+      padding: 0rem 5rem;
+    }
+    @include for-lg-tablet {
+      padding: 0rem 2rem;
+    }
+  }
+}
