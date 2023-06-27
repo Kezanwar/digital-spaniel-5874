@@ -4,6 +4,7 @@ $open_sans: 'Open Sans', sans-serif;
 $poppins: 'Poppins', sans-serif;
 
 a,
-button {
+button,
+p {
   font-family: $open_sans;
 }

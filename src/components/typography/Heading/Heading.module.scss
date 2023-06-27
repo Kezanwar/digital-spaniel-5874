@@ -1,0 +1,14 @@
+h2.heading {
+  margin: 0;
+  color: $navy--dark;
+  font-family: $poppins;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+  span {
+    display: block;
+    margin: 0;
+    color: rgba($navy--medium, 0.75);
+  }
+}

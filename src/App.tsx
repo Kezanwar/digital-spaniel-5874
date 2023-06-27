@@ -7,6 +7,7 @@ import { fetchTestimonialsAction } from '@app/store/slices/testimonials/testimon
 
 // components
 import { Header } from '@app/components/features/Header';
+import Router from '@app/routes/routes';
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <Header />
-      <div style={{ height: '200vh', backgroundColor: 'lavender' }}></div>
+      <Router />
     </>
   );
 }

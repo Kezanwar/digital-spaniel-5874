@@ -34,7 +34,12 @@ $breakpoint-phone-sml: 400px;
     @content;
   }
 }
-@mixin for-lg-desktop {
+@mixin for-lg-desktop-down {
+  @media (max-width: $breakpoint-desktop-lg) {
+    @content;
+  }
+}
+@mixin for-lg-desktop-up {
   @media (min-width: $breakpoint-desktop-lg) {
     @content;
   }

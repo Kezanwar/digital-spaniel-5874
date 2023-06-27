@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { mediaQueries } from '../constants/responsive.constants';
 
 export function useMediaQuery(queries: string[]): boolean[] {
@@ -8,9 +8,9 @@ export function useMediaQuery(queries: string[]): boolean[] {
 
   const [matches, setMatches] = useState<boolean[]>(getMatches(queries));
 
-  function handleChange() {
+  const handleChange = useCallback(() => {
     setMatches(getMatches(queries));
-  }
+  }, [queries]);
 
   useEffect(() => {
     if (queries?.length) {

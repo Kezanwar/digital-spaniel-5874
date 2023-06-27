@@ -5,6 +5,8 @@ export type FetchErrorHandlerOptions = {
   onError: (errorObj: ErrorObject) => void;
 };
 
+const genericErrMsg = 'Something went wrong';
+
 export const fetchErrorHandler = (
   errorHandlerOptions: FetchErrorHandlerOptions
 ): void => {
@@ -14,10 +16,10 @@ export const fetchErrorHandler = (
   console.error(error);
 
   if (typeof error === 'string') {
-    onError({ message: error, statusCode: 500 });
+    onError({ message: error || genericErrMsg, statusCode: 500 });
   } else if (apiErr?.message && apiErr?.statusCode) {
     onError(apiErr);
   } else {
-    onError({ message: 'Something went wrong', statusCode: 500 });
+    onError({ message: genericErrMsg, statusCode: 500 });
   }
 };

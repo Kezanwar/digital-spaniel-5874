@@ -18,11 +18,13 @@ import { Logo } from '@app/components/elements/Logo';
 import { Hamburger } from '@app/components/buttons/Hamburger';
 import { DesktopNav, MobileNav } from './nav';
 
+const mediaQuery = [mediaQueries.lgTablet];
+
 const Header: React.FC = () => {
   const { mobileNavOpen } = useSelector((state: RootState) => state.nav);
   const dispatch: AppDispatch = useDispatch();
   const { pathname } = useLocation();
-  const [isTablet] = useMediaQuery([mediaQueries.lgTablet]);
+  const [isTablet] = useMediaQuery(mediaQuery);
   const { hide, whiteBG } = useHeaderScroll();
 
   const hideClass = hide ? 'scroll-hide' : '';

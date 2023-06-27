@@ -20,15 +20,16 @@
     max-width: 100%;
 
     @media (min-width: 1400px) {
-      max-width: 1400px;
+      max-width: 1500px;
     }
 
     @include for-lg-tablet {
       height: 120px;
+      background-color: $white;
     }
 
     @include for-lg-phone {
-      padding: 1rem;
+      padding: 2rem;
       height: 100px;
     }
 
@@ -38,7 +39,7 @@
       height: 70px;
       max-height: 100%;
       @include for-lg-tablet {
-        height: 60px;
+        height: 70px;
       }
     }
 
@@ -47,14 +48,18 @@
     ul.nav--desktop {
       list-style: none;
       display: flex;
-      gap: 2.5rem;
+      gap: 4rem;
+
+      @include for-sml-desktop {
+        gap: 3rem;
+      }
 
       @include for-lg-tablet {
         display: none;
       }
 
       .nav-item {
-        font-size: 1.11rem;
+        font-size: 1rem;
         text-decoration: none;
         font-weight: 600;
         transition: all 150ms ease;
@@ -70,10 +75,10 @@
           content: '';
           opacity: 0;
           width: 100%;
-          height: 3px;
+          height: 2px;
           position: absolute;
           transition: opacity 200ms ease;
-          bottom: -0.25rem;
+          bottom: -0.3rem;
           left: 0;
           background-color: $white;
         }
@@ -123,7 +128,7 @@ nav.nav--mobile {
   width: 100vw;
   height: 100vh;
   background-color: $navy--dark;
-  z-index: 0;
+  z-index: 1;
   top: 130px;
   padding: 2rem;
   padding-top: 6rem;
