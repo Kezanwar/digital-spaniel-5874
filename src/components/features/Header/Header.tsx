@@ -3,7 +3,7 @@ import React from 'react';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '@app/types/store';
-import { toggle } from '@app/store/slices/nav/nav.slice';
+import { close, toggle } from '@app/store/slices/nav/nav.slice';
 
 // hooks
 import { useLocation } from 'react-router';
@@ -17,12 +17,15 @@ import { mediaQueries } from '@app/constants/responsive.constants';
 import { Logo } from '@app/components/elements/Logo';
 import { Hamburger } from '@app/components/buttons/Hamburger';
 import { DesktopNav, MobileNav } from './nav';
+import { Link } from 'react-router-dom';
+
+const mediaQuery = [mediaQueries.lgTablet];
 
 const Header: React.FC = () => {
   const { mobileNavOpen } = useSelector((state: RootState) => state.nav);
   const dispatch: AppDispatch = useDispatch();
   const { pathname } = useLocation();
-  const [isTablet] = useMediaQuery([mediaQueries.lgTablet]);
+  const [isTablet] = useMediaQuery(mediaQuery);
   const { hide, whiteBG } = useHeaderScroll();
 
   const hideClass = hide ? 'scroll-hide' : '';
@@ -30,11 +33,15 @@ const Header: React.FC = () => {
 
   const toggleMobileNav = () => dispatch(toggle());
 
+  const closeMobNav = () => dispatch(close());
+
   return (
     <>
       <header className={`header__wrapper ${hideClass} ${whiteBgClass} `}>
         <div className="header__content">
-          <Logo />
+          <Link onClick={closeMobNav} to={'/'}>
+            <Logo />
+          </Link>
           {!isTablet ? (
             <DesktopNav activePath={pathname} />
           ) : (

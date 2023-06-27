@@ -7,20 +7,21 @@ import { fetchTestimonialsAction } from '@app/store/slices/testimonials/testimon
 
 // components
 import { Header } from '@app/components/features/Header';
+import Router from '@app/routes/routes';
 
 function App() {
   const dispatch: AppDispatch = useDispatch();
   const t = useSelector((state: RootState) => state.testimonials);
-  useEffect(() => {
-    if (!t.isFetched && !t.testimonials?.length) {
-      dispatch(fetchTestimonialsAction);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!t.isFetched && !t.testimonials?.length) {
+  //     dispatch(fetchTestimonialsAction);
+  //   }
+  // }, []);
 
   return (
     <>
       <Header />
-      <div style={{ height: '200vh', backgroundColor: 'lavender' }}></div>
+      <Router />
     </>
   );
 }

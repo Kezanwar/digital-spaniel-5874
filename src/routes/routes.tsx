@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useLocation, useRoutes } from 'react-router-dom';
+import { useLocation, useRoutes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // guards
@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion';
 // layouts
 
 // pages
-import Test from '../pages/Test';
+import Home from '../pages/Home/Home';
 
 // config
 
@@ -17,8 +17,9 @@ const Router: React.FC = () => {
   const elements = useRoutes([
     {
       path: '/',
-      element: <Test />
-    }
+      element: <Home />
+    },
+    { path: '*', element: <Home /> }
   ]);
   const location = useLocation();
   if (!elements) return null;
