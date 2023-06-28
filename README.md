@@ -16,9 +16,8 @@ yarn fake-api
 
 ```
 yarn storybook
-``
+```
 
-``
+```
 yarn test
-``
 ```
