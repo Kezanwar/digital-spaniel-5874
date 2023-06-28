@@ -56,11 +56,6 @@ const RecentProjectsSection: React.FC = () => {
         <Heading text="Some of our" spanText="Recent projects" />
       </div>
       <div>{content}</div>
-      <div className="see-all-wrapper">
-        <CustomLink variant="branded" to={'/work'}>
-          See All
-        </CustomLink>
-      </div>
     </SectionWrapper>
   );
 };

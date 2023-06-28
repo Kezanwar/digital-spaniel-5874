@@ -180,4 +180,17 @@
       }
     }
   }
+
+  .see-all-wrapper {
+    margin-top: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .controls-container {
+      display: flex;
+      gap: 1rem;
+    }
+  }
 }
