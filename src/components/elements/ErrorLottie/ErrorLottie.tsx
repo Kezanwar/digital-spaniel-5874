@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
 import React from 'react';
-import ErrorAnim from '@app/assets/empty.json';
+import ErrorAnim from '@app/assets/lottie/empty.json';
 
 const styles = { height: '6rem' };
 

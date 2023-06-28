@@ -1,6 +1,6 @@
 import Lottie from 'lottie-react';
 import React from 'react';
-import LoadingAnim from '@app/assets/loading.json';
+import LoadingAnim from '@app/assets/lottie/loading.json';
 
 const styles = { height: '6rem' };
 
