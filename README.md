@@ -1,11 +1,20 @@
-
 # DIGITAL SPANIEL REACT TYPESCRIPT
 
-# ----- Requirements
-
-- json-server npm package installed globally
+# uses json server & storybook
 
 ```
-npm i -g json-server
+yarn dev
 ```
 
+```
+yarn fake-api
+```
+
+```
+yarn storybook
+``
+
+``
+yarn test
+``
+```
