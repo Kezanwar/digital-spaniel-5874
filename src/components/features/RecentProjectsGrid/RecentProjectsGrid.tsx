@@ -20,7 +20,7 @@ export type FilterBy = string | null;
 const RecentProjectsGrid: React.FC<Props> = ({ projects }) => {
   const [filterBy, setFilterBy] = useState<FilterBy>('all');
 
-  const filterByAll = () => setFilterBy('all');
+  const handleFilterByAll = () => setFilterBy('all');
 
   const filterOptions: GridFilterOption[] = useMemo(() => {
     if (projects?.length) {
@@ -50,7 +50,7 @@ const RecentProjectsGrid: React.FC<Props> = ({ projects }) => {
       <div className="filter-section">
         <FilterBar
           filterOptions={filterOptions}
-          filterByAll={filterByAll}
+          hanldeFilterByAll={handleFilterByAll}
           filterBy={filterBy}
         />
       </div>

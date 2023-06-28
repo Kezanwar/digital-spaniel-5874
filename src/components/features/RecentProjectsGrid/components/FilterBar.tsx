@@ -4,19 +4,19 @@ import { FilterBy, GridFilterOption } from '../RecentProjectsGrid';
 type Props = {
   filterOptions: GridFilterOption[];
   filterBy: FilterBy;
-  filterByAll: () => void;
+  handleFilterByAll: () => void;
 };
 
 const FilterBar: React.FC<Props> = ({
   filterOptions,
   filterBy,
-  filterByAll
+  handleFilterByAll
 }) => {
   if (!filterOptions?.length) return null;
   return (
     <div className="filter-bar">
       <button
-        onClick={filterByAll}
+        onClick={handleFilterByAll}
         className={`filter-btn ${filterBy === 'all' ? 'active' : ''}`}
       >
         All
