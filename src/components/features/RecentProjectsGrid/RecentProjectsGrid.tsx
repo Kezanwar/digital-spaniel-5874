@@ -50,7 +50,7 @@ const RecentProjectsGrid: React.FC<Props> = ({ projects }) => {
       <div className="filter-section">
         <FilterBar
           filterOptions={filterOptions}
-          hanldeFilterByAll={handleFilterByAll}
+          handleFilterByAll={handleFilterByAll}
           filterBy={filterBy}
         />
       </div>

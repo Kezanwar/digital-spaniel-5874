@@ -19,6 +19,7 @@ export const Primary: Story = {
   args: {
     cover: '',
     id: '',
-    title: ''
+    title: '',
+    date: ''
   }
 };
