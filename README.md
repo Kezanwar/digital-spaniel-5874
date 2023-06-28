@@ -1,11 +1,22 @@
-
 # DIGITAL SPANIEL REACT TYPESCRIPT
 
-# ----- Requirements
+# image directory provided in email must be reachable by path src/assets/images
 
-- json-server npm package installed globally
+# uses json server & storybook
 
 ```
-npm i -g json-server
+yarn dev
 ```
 
+```
+yarn fake-api
+```
+
+```
+yarn storybook
+``
+
+``
+yarn test
+``
+```
