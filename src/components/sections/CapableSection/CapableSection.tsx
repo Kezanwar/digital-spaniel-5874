@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { SectionWrapper } from '../../layout/SectionWrapper';
-import { Heading } from '../../typography/Heading';
-import { BodyText } from '../../typography/BodyText';
-import { CustomLink } from '../../buttons/CustomLink';
-import { PATH_SERVICES } from '../../../constants/paths.constants';
-import LinkColumn, { LinkColItem } from '../../features/LinkColumn/LinkColumn';
+import { SectionWrapper } from '@app/components/layout/SectionWrapper';
+import { Heading } from '@app/components/typography/Heading';
+import { BodyText } from '@app/components/typography/BodyText';
+import { CustomLink } from '@app/components/buttons/CustomLink';
+import LinkColumn, {
+  LinkColItem
+} from '@app/components/features/LinkColumn/LinkColumn';
+
+import { PATH_SERVICES } from '@app/constants/paths.constants';
 
 const brandLinks: LinkColItem[] = [
   { label: 'Brand Strategy', to: '/' },

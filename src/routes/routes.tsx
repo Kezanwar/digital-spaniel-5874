@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion';
 
 // pages
 import Home from '../pages/Home/Home';
+import ProjectSingle from '../pages/Projects/ProjectSingle';
 
 // config
 
@@ -18,6 +19,10 @@ const Router: React.FC = () => {
     {
       path: '/',
       element: <Home />
+    },
+    {
+      path: '/project/:id',
+      element: <ProjectSingle />
     },
     { path: '*', element: <Home /> }
   ]);
