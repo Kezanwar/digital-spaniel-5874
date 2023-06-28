@@ -1,0 +1,35 @@
+.project-single__hero {
+  margin-top: 130px;
+  overflow: hidden;
+
+  @include for-lg-tablet {
+    margin-top: 120px;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  @include for-lg-phone {
+    margin-top: 100px;
+  }
+
+  .cover-image {
+    object-fit: cover;
+    width: 100%;
+    margin-top: 1rem;
+    height: 40vh;
+    border-radius: 12px;
+
+    margin-left: auto;
+
+    // position: absolute;
+  }
+
+  .heading-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    .tagline {
+      text-align: right;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Images from '../../../assets/images';
+import { Images } from '@app/assets/assets';
 
 const Logo: React.FC = () => {
   return <img src={Images.logo} className="Logo" alt="digital-spaniel-logo" />;

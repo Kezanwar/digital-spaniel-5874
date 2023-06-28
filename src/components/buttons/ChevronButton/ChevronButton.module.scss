@@ -1,0 +1,38 @@
+.chev-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  height: 3rem;
+  aspect-ratio: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 150ms ease;
+  background-color: $navy--dark;
+  color: white;
+
+  svg {
+    scale: 1.1;
+    transition: scale 50ms ease;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    svg {
+      scale: 0.9;
+    }
+  }
+
+  &.next {
+    transform: rotate(180deg);
+  }
+
+  &.disabled {
+    pointer-events: none;
+    background-color: rgba($navy--dark, 0.4);
+    color: $navy--dark;
+  }
+}

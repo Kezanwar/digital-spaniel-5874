@@ -1,0 +1,196 @@
+.projects__fetching {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 0rem;
+
+  h5 {
+    font-family: $poppins;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+  }
+}
+
+.recent-projects-grid__wrapper {
+  //   min-height: 50vh;
+  overflow: hidden;
+
+  .filter-bar {
+    margin: 3rem 0rem 2rem 0rem;
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid $mediumgrey--medium;
+    max-width: 100%;
+    width: max-content;
+
+    @include for-lg-phone {
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      border-bottom: 0px solid $mediumgrey--medium;
+    }
+    button.filter-btn {
+      background-color: unset;
+      border: unset;
+      outline: unset;
+      font-family: $poppins;
+      padding-bottom: 0.5rem;
+      position: relative;
+      transition: all 150ms ease;
+      color: $navy--dark;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        width: 110%;
+        height: 2px;
+        bottom: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        background-color: $pink--dark;
+        transition: all 150ms ease;
+        opacity: 0;
+      }
+
+      &.active {
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &:hover {
+        opacity: 0.9;
+        color: $pink--dark;
+      }
+
+      &:active {
+        scale: 0.9;
+      }
+    }
+  }
+
+  .recent__grid {
+    display: grid;
+    border-radius: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    @include for-sml-tablet {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 200px 200px 200px;
+    }
+
+    .recent-item {
+      position: relative;
+
+      cursor: pointer;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 8px;
+        background-color: #0000008e;
+        transition: all 300ms ease;
+        opacity: 0;
+        pointer-events: none;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        backdrop-filter: blur(2px);
+
+        @include for-lg-phone {
+          padding: 1.25rem;
+        }
+
+        h4 {
+          color: $white;
+          font-family: $poppins;
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+          @include for-lg-phone {
+            margin-bottom: 0.5rem;
+          }
+        }
+
+        p {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          color: $white;
+          font-family: $open_sans;
+          line-height: 1.5;
+          margin-bottom: 1rem;
+
+          @include for-lg-phone {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+          }
+        }
+
+        .link {
+          font-family: $poppins;
+          text-decoration: underline;
+          font-size: 1rem;
+          color: $white;
+          font-weight: 500;
+        }
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 1;
+        }
+      }
+    }
+
+    .recent-item:nth-child(4) {
+      grid-column: 1 / 3;
+
+      .overlay {
+        p {
+          width: 50%;
+        }
+      }
+
+      @include for-sml-tablet {
+        grid-column: unset;
+
+        .overlay {
+          p {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .see-all-wrapper {
+    margin-top: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .controls-container {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+}

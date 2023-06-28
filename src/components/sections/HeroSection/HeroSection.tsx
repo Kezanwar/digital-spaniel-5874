@@ -3,9 +3,9 @@ import React from 'react';
 import { Tagline } from '@app/components/typography/Tagline';
 import { Heading } from '@app/components/typography/Heading';
 import { BodyText } from '@app/components/typography/BodyText';
-import { CustomLink } from '../../buttons/CustomLink';
+import { CustomLink } from '@app/components/buttons/CustomLink';
 
-import { PATH_CONTACT } from '../../../constants/paths.constants';
+import { PATH_CONTACT } from '@app/constants/paths.constants';
 
 const HeroSection: React.FC = () => {
   return (

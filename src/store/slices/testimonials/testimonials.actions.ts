@@ -10,7 +10,7 @@ import {
 import { getTestimonials } from '@app/api/testimonials.api';
 
 // util
-import { fetchErrorHandler } from '../../../utilities/api/api.utilities';
+import { fetchErrorHandler } from '@app/utilities/api/api.utilities';
 
 export const fetchTestimonialsAction = async (dispatch: AppDispatch) => {
   try {

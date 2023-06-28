@@ -8,6 +8,11 @@
   border-bottom-right-radius: 5px;
   background-color: transparent;
   transition: all 200ms ease-in-out;
+  padding: 0rem 2rem;
+
+  @include for-lg-tablet {
+    background-color: $white;
+  }
 
   .header__content {
     display: flex;
@@ -16,7 +21,7 @@
     height: 130px;
     margin-left: auto;
     margin-right: auto;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 0rem;
     max-width: 100%;
 
     @media (min-width: 1400px) {
@@ -29,7 +34,7 @@
     }
 
     @include for-lg-phone {
-      padding: 2rem;
+      padding: 2rem 0rem;
       height: 100px;
     }
 
